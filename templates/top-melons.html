@@ -1,15 +1,46 @@
 <!doctype html>
 <html>
+{#
+<!--Update the top-melons.html template:
+    * Add a <h1> heading that says welcome and the person’s name. So, if Balloonicorn was on the site and had entered her name
+      on the homepage, the top melons page should display Welcome, Balloonicorn in a heading.
+    * We’ll also display the user’s name along with each melon name. Update the <h3> header that is currently displaying
+      just the melon name. Instead of just listing the melon’s name, make the text in the <h3> header look like this:
+      Balloonicorn, this is a Crenshaw (so it should display the user’s name followed by “this is a ” and the name of
+      the melon).-->#}
+
+
 <head>
   <title>Top Melons</title>
   <link rel="stylesheet" type="text/css" href="/static/styles.css">
+  <h1 class="heading">Welcome, {{ session["person"] }}!</h1>
 </head>
+
+{% extends "base.html" %}
+{% block page_color %}
+
 <body>
+  {#
   <!-- Create a div for every Most Loved Melon using a Jinja for-loop -->
+  <!-- write a Jinja FOR loop to create divs for all of the melons in the MOST_LOVED_MELONS dictionary. Do not hardcode the
+    information for any of the melons in the template. Make sure that for each melon, the template displays:
+      * the melon’s name
+      * the melon’s num_loves (number of times it’s been loved)
+      * the melon’s image -->#}
+  {% for melon in melons.values() %}
+  img = melon['img']
+  name = melon['name']
+  num_loves = melon['num_loves']
+
   <div class="melon-div">
-    <h3>Texas Golden Watermelon</h3>
-    <h2>Loved 598 times.</h2>
-    <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg">
+    <img class="image" src={{img}} alt="Picture of a melon">
+    <p>{{name}}</p>
+
+    <p>{{num_loves}} people love this melon!</p>
+
   </div>
+  {% endfor %}
+  {%endblock%}
 </body>
+
 </html>

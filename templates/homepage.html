@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{#
+<!-- write the HTML for homepage.html. It should have at least the following elements on it (you may add more
+if you feel so inclined):
+    * An <h1> header that says UberMelon’s Most Loved Melons
+    * An image of a melon.
+    * A form for a user to fill in their name. This name input should be required (hint: there is an HTML required
+    attribute that you can put on an input element. It won’t allow a form to submit until the required input has been
+    filled out). The form should submit to /get-name using a GET request. -->#}
+
+{% extends "base.html" %}
+{% block page_color %}
+
+<body>
+    <h1 class="heading"> UberMelon’s Most Loved Melons </h1>
+    <img class="image" src="https://www.greenlife.co.ke/wp-content/uploads/2019/04/Baby-Melon-1600x800.jpg"
+        alt="Picture of a small watermelon on the vine.">
+
+    <form action="/get-name">
+        <label>Hi there! What's your name?:</label>
+        <input type="text" name="person" required>
+        <input type="submit">
+    </form>
+    {%endblock%}
+</body>
+
+</html>
